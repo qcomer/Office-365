@@ -2,7 +2,7 @@
 Connect-MsolService -Credential $credential
  
 $userRequiringAccess = Read-Host -Prompt "Input the user's email that is requesting the access"
-$accessRight = Read-Host -Promt "Level of rights being requested: Reviewer"
+$accessRight = Read-Host -Promt "Level of rights being requested: Reviewer, Editor, etc."
 $companyName = Read-Host -Prompt "Tenant Name"
   
 $customers = Get-msolpartnercontract -All | Where-Object {$_.name -match $companyName}
