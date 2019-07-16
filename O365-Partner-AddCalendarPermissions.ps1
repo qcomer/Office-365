@@ -1,9 +1,9 @@
 ﻿$credential = Get-Credential
 Connect-MsolService -Credential $credential
  
-$userRequiringAccess = "steve@United-Paving.com"
-$accessRight = "Reviewer"
-$companyName = "United-Paving"
+$userRequiringAccess = Read-Host -Prompt "Input the user's email that is requesting the access"
+$accessRight = Read-Host -Promt "Level of rights being requested: Reviewer"
+$companyName = Read-Host -Prompt "Tenant Name"
   
 $customers = Get-msolpartnercontract -All | Where-Object {$_.name -match $companyName}
 foreach ($customer in $customers) {
